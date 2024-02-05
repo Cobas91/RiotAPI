@@ -1,11 +1,10 @@
 package de.cobas;
 
 
-import de.cobas.lol.StaticApiDownloader;
+import de.cobas.lol.LeagueOfLegendsClient;
 
 public class RiotApiClient {
-
-    public String[] getCurrentVersions(){
-        return StaticApiDownloader.downloadVersionNumbers();
+    public LeagueOfLegendsClient getLeagueOfLegendsClient(){
+        return new LeagueOfLegendsClient();
     }
 }
