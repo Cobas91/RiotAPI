@@ -1,4 +1,4 @@
-package de.cobas.lol.responses.champion;
+package de.cobas.lol.model;
 
 import lombok.Data;
 
@@ -12,6 +12,7 @@ public class Champion {
     private String name;
     private String title;
     private String blurb;
+    private byte[] championIcon;
     private ChampionInfo info;
     private LeagueOfLegendsImage image;
     private List<String> tags;

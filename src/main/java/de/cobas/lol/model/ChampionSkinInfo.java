@@ -1,4 +1,4 @@
-package de.cobas.lol.responses.champion;
+package de.cobas.lol.model;
 
 import lombok.Data;
 
@@ -8,4 +8,5 @@ public class ChampionSkinInfo {
     private String num;
     private String name;
     private String chromas;
+    private byte[] image;
 }
