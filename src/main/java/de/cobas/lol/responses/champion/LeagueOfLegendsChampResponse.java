@@ -1,5 +1,6 @@
 package de.cobas.lol.responses.champion;
 
+import de.cobas.lol.model.Champion;
 import lombok.Data;
 
 import java.util.Map;
