@@ -1,6 +1,6 @@
 package de.cobas.lol;
 
-import de.cobas.lol.responses.champion.Champion;
+import de.cobas.lol.model.Champion;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class LeagueOfLegendsApiDownloaderTest {
     LeagueOfLegendsApiDownloader downloader = new LeagueOfLegendsApiDownloader();
@@ -26,6 +25,17 @@ class LeagueOfLegendsApiDownloaderTest {
     public void testDownloadAllChampions(){
         List<Champion> allChampions = downloader.getAllChampions();
          assertFalse(allChampions.isEmpty());
+    }
+
+    @Test
+    @DisplayName("Test if the Download of the icons for one champ is successfully")
+    public void testDownloadAllSplashIcons(){
+        List<Champion> allChampions = downloader.getAllChampions();
+        Champion testChamp = allChampions.get(0);
+        downloader.setDefaultChampSplash(testChamp);
+        downloader.setSkinSplashes(testChamp);
+        assertNotNull(testChamp.getChampionIcon());
+        assertNotNull(testChamp.getSkins().get(3).getImage());
     }
 
 }
