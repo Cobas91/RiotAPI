@@ -4,25 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db1053d7-2a8b-4831-9876-a4d6572d519a" name="Changes" comment="feat(authentication): apitoken&#10;&#10;first attempt for authentication">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/client/LeagueOfLegendsClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/client/LeagueOfLegendsClientBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/client/SummonerDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/client/VersionDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/enums/RiotRegion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/responses/SummonerInformationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/cobas/lol/client/LeagueOfLegendsClientBuilderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/cobas/lol/client/SummonerDownloaderTest.java" afterDir="false" />
+    <list default="true" id="db1053d7-2a8b-4831-9876-a4d6572d519a" name="Changes" comment="cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cobas/RiotApiAuthenticationException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cobas/RiotApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cobas/RiotApiClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cobas/lol/Languages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/enums/Language.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cobas/lol/LeagueOfLegendsApiDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/client/ChampionDownloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cobas/lol/LeagueOfLegendsClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cobas/lol/RiotApiUrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/enums/RiotApiUrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cobas/lol/responses/champion/LeagueOfLegendsChampResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/responses/LeagueOfLegendsChampResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cobas/util/HttpClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cobas/util/HttpClientImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/cobas/lol/LeagueOfLegendsApiDownloaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/cobas/lol/LeagueOfLegendsApiDownloaderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +52,7 @@
     "JUnit.lol in RiotApi.executor": "Run",
     "Maven.RiotApi [clean].executor": "Run",
     "Maven.RiotApi [deploy].executor": "Run",
+    "Maven.RiotApi [package].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -107,7 +91,7 @@
       <recent name="lol" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SummonerDownloaderTest.testSummonerInformationDownload">
+  <component name="RunManager" selected="JUnit.lol in RiotApi">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
@@ -134,22 +118,6 @@
       <option name="resourceGroup" />
       <option name="stagingFolder" />
       <option name="subscription" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LeagueOfLegendsApiDownloaderTest.testDownloadAllSplashIcons" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RiotApi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.cobas.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="de.cobas.lol" />
-      <option name="MAIN_CLASS_NAME" value="de.cobas.lol.LeagueOfLegendsApiDownloaderTest" />
-      <option name="METHOD_NAME" value="testDownloadAllSplashIcons" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -218,13 +186,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="lol in RiotApi" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RiotApi" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java/de/cobas/lol" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.lol in RiotApi" />
         <item itemvalue="JUnit.SummonerDownloaderTest.testSummonerInformationDownload" />
         <item itemvalue="JUnit.SummonerDownloaderTest.testSummonerInformationDownloadThrowsException" />
         <item itemvalue="JUnit.LeagueOfLegendsApiDownloaderTest.testVersionDownload" />
         <item itemvalue="JUnit.LeagueOfLegendsClientBuilderTest.test" />
-        <item itemvalue="JUnit.LeagueOfLegendsApiDownloaderTest.testDownloadAllSplashIcons" />
       </list>
     </recent_temporary>
   </component>
@@ -253,6 +229,7 @@
       <workItem from="1707244862138" duration="2274000" />
       <workItem from="1707259057060" duration="2630000" />
       <workItem from="1707332481425" duration="3582000" />
+      <workItem from="1707338828116" duration="667000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -406,7 +383,55 @@
       <option name="project" value="LOCAL" />
       <updated>1707259260288</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="refactor(downloader): Refactor responsabilities&#10;&#10;- implement version downloader&#10;- implement champion downloader&#10;- implement summoner downloader">
+      <option name="closed" value="true" />
+      <created>1707338977609</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1707338977609</updated>
+    </task>
+    <task id="LOCAL-00021" summary="refactor(enums): implement enums&#10;&#10;- enums for language, urls and regions">
+      <option name="closed" value="true" />
+      <created>1707339022426</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1707339022426</updated>
+    </task>
+    <task id="LOCAL-00022" summary="feat(client): clientbuilder&#10;&#10;- league of legends client can only be instaciated by an builder">
+      <option name="closed" value="true" />
+      <created>1707339066414</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1707339066414</updated>
+    </task>
+    <task id="LOCAL-00023" summary="feat(auth): http header&#10;&#10;- use the apitoken in the header when given">
+      <option name="closed" value="true" />
+      <created>1707339094274</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1707339094274</updated>
+    </task>
+    <task id="LOCAL-00024" summary="refactor(tests): builder&#10;&#10;- use the builder pattern in tests">
+      <option name="closed" value="true" />
+      <created>1707339147758</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1707339147758</updated>
+    </task>
+    <task id="LOCAL-00025" summary="cleanup">
+      <option name="closed" value="true" />
+      <created>1707339163271</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1707339163271</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,6 +463,12 @@
     <MESSAGE value="refactor(package): move to model&#10;&#10;- champion moved to model" />
     <MESSAGE value="feat(download): champions&#10;&#10;downloading icons are byte array" />
     <MESSAGE value="feat(authentication): apitoken&#10;&#10;first attempt for authentication" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(authentication): apitoken&#10;&#10;first attempt for authentication" />
+    <MESSAGE value="refactor(downloader): Refactor responsabilities&#10;&#10;- implement version downloader&#10;- implement champion downloader&#10;- implement summoner downloader" />
+    <MESSAGE value="refactor(enums): implement enums&#10;&#10;- enums for language, urls and regions" />
+    <MESSAGE value="feat(client): clientbuilder&#10;&#10;- league of legends client can only be instaciated by an builder" />
+    <MESSAGE value="feat(auth): http header&#10;&#10;- use the apitoken in the header when given" />
+    <MESSAGE value="refactor(tests): builder&#10;&#10;- use the builder pattern in tests" />
+    <MESSAGE value="cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
   </component>
 </project>
