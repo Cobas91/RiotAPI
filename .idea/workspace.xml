@@ -4,8 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db1053d7-2a8b-4831-9876-a4d6572d519a" name="Changes" comment="feat(RiotApi): RiotClient&#10;&#10;- implement first method to get all versions numbers from the riot api">
+    <list default="true" id="db1053d7-2a8b-4831-9876-a4d6572d519a" name="Changes" comment="feat(authentication): apitoken&#10;&#10;first attempt for authentication">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/client/LeagueOfLegendsClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/client/LeagueOfLegendsClientBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/client/SummonerDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/client/VersionDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/enums/RiotRegion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/responses/SummonerInformationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/cobas/lol/client/LeagueOfLegendsClientBuilderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/cobas/lol/client/SummonerDownloaderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cobas/RiotApiAuthenticationException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cobas/RiotApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cobas/RiotApiClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cobas/lol/Languages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/enums/Language.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cobas/lol/LeagueOfLegendsApiDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/client/ChampionDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cobas/lol/LeagueOfLegendsClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cobas/lol/RiotApiUrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/enums/RiotApiUrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cobas/lol/responses/champion/LeagueOfLegendsChampResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cobas/lol/responses/LeagueOfLegendsChampResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cobas/util/HttpClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cobas/util/HttpClientImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/cobas/lol/LeagueOfLegendsApiDownloaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/cobas/lol/LeagueOfLegendsApiDownloaderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +44,9 @@
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -35,26 +55,43 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.ChampionDownloaderTest.testVersionDownload.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.StaticApiDownloaderTest.testVersionDownload (1).executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.ChampionDownloaderTest.testVersionDownload.executor": "Debug",
+    "JUnit.LeagueOfLegendsApiDownloaderTest.testDownloadAllChampions.executor": "Debug",
+    "JUnit.LeagueOfLegendsApiDownloaderTest.testDownloadAllSplashIcons.executor": "Run",
+    "JUnit.LeagueOfLegendsApiDownloaderTest.testVersionDownload.executor": "Run",
+    "JUnit.LeagueOfLegendsClientBuilderTest.test.executor": "Run",
+    "JUnit.StaticApiDownloaderTest.testDownloadAllChampions.executor": "Debug",
+    "JUnit.StaticApiDownloaderTest.testVersionDownload (1).executor": "Run",
+    "JUnit.SummonerDownloaderTest.testSummonerInformationDownload.executor": "Debug",
+    "JUnit.SummonerDownloaderTest.testSummonerInformationDownloadThrowsException.executor": "Run",
+    "JUnit.lol in RiotApi.executor": "Run",
+    "Maven.RiotApi [clean].executor": "Run",
+    "Maven.RiotApi [deploy].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/IntelliJ Projects/league_a_z",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="de.cobas.lol" />
+      <recent name="de.cobas.lol.responses.champion" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
@@ -62,40 +99,120 @@
       <recent name="C:\Users\Admin\IdeaProjects\RiotApi\src\main\resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="de.cobas.lol.client" />
       <recent name="de.cobas" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="de.cobas.lol.client" />
       <recent name="lol" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StaticApiDownloaderTest.testVersionDownload (1)">
-    <configuration name="StaticApiDownloaderTest.testVersionDownload (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.SummonerDownloaderTest.testSummonerInformationDownload">
+    <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
+      <option name="appName" />
+      <option name="appServicePlanName" />
+      <option name="appServicePlanResourceGroup" />
+      <option name="appSettingsKey" value="d367b2be-a6ee-403e-a90f-62938ccff700" />
+      <option name="artifact" />
+      <option name="debugOptions" />
+      <option name="deployment" />
+      <option name="deploymentStagingDirectoryPath" />
+      <option name="funcPath" />
+      <option name="functionHostArguments" />
+      <option name="hostJsonPath" />
+      <option name="insightsName" />
+      <option name="instrumentationKey" />
+      <option name="javaVersion" />
+      <option name="localSettingsJsonPath" />
+      <option name="moduleName" />
+      <option name="os" />
+      <option name="pricingTier" />
+      <option name="providerMap">
+        <map />
+      </option>
+      <option name="region" />
+      <option name="resourceGroup" />
+      <option name="stagingFolder" />
+      <option name="subscription" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LeagueOfLegendsApiDownloaderTest.testDownloadAllSplashIcons" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RiotApi" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="de.cobas.lol.*" />
+          <option name="PATTERN" value="de.cobas.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="de.cobas.lol" />
-      <option name="MAIN_CLASS_NAME" value="de.cobas.lol.StaticApiDownloaderTest" />
+      <option name="MAIN_CLASS_NAME" value="de.cobas.lol.LeagueOfLegendsApiDownloaderTest" />
+      <option name="METHOD_NAME" value="testDownloadAllSplashIcons" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LeagueOfLegendsApiDownloaderTest.testVersionDownload" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RiotApi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.cobas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="de.cobas.lol" />
+      <option name="MAIN_CLASS_NAME" value="de.cobas.lol.LeagueOfLegendsApiDownloaderTest" />
       <option name="METHOD_NAME" value="testVersionDownload" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StaticApiDownloaderTest.testVersionDownload" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LeagueOfLegendsClientBuilderTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RiotApi" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="lol.*" />
+          <option name="PATTERN" value="de.cobas.lol.client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="lol" />
-      <option name="MAIN_CLASS_NAME" value="lol.StaticApiDownloaderTest" />
-      <option name="METHOD_NAME" value="testVersionDownload" />
+      <option name="PACKAGE_NAME" value="de.cobas.lol.client" />
+      <option name="MAIN_CLASS_NAME" value="de.cobas.lol.client.LeagueOfLegendsClientBuilderTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SummonerDownloaderTest.testSummonerInformationDownload" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RiotApi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.cobas.lol.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="de.cobas.lol.client" />
+      <option name="MAIN_CLASS_NAME" value="de.cobas.lol.client.SummonerDownloaderTest" />
+      <option name="METHOD_NAME" value="testSummonerInformationDownload" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SummonerDownloaderTest.testSummonerInformationDownloadThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RiotApi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.cobas.lol.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="de.cobas.lol.client" />
+      <option name="MAIN_CLASS_NAME" value="de.cobas.lol.client.SummonerDownloaderTest" />
+      <option name="METHOD_NAME" value="testSummonerInformationDownloadThrowsException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -103,8 +220,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StaticApiDownloaderTest.testVersionDownload (1)" />
-        <item itemvalue="JUnit.StaticApiDownloaderTest.testVersionDownload" />
+        <item itemvalue="JUnit.SummonerDownloaderTest.testSummonerInformationDownload" />
+        <item itemvalue="JUnit.SummonerDownloaderTest.testSummonerInformationDownloadThrowsException" />
+        <item itemvalue="JUnit.LeagueOfLegendsApiDownloaderTest.testVersionDownload" />
+        <item itemvalue="JUnit.LeagueOfLegendsClientBuilderTest.test" />
+        <item itemvalue="JUnit.LeagueOfLegendsApiDownloaderTest.testDownloadAllSplashIcons" />
       </list>
     </recent_temporary>
   </component>
@@ -125,6 +245,14 @@
       <updated>1706900429783</updated>
       <workItem from="1706900431475" duration="4754000" />
       <workItem from="1706917986540" duration="318000" />
+      <workItem from="1706989371190" duration="466000" />
+      <workItem from="1706989852974" duration="765000" />
+      <workItem from="1706990633739" duration="859000" />
+      <workItem from="1706995794049" duration="1259000" />
+      <workItem from="1707164314172" duration="9873000" />
+      <workItem from="1707244862138" duration="2274000" />
+      <workItem from="1707259057060" duration="2630000" />
+      <workItem from="1707332481425" duration="3582000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -166,27 +294,150 @@
       <option name="project" value="LOCAL" />
       <updated>1706904619576</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat(RiotApi): RiotClient&#10;&#10;- implement first method to get all versions numbers from the riot api">
+      <option name="closed" value="true" />
+      <created>1706989449917</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1706989449917</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat(LeagueClient): Champion Entity&#10;&#10;- implement Champion Entity based on API Response">
+      <option name="closed" value="true" />
+      <created>1707171049603</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1707171049603</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat(HttpClient): Add Abstract Class&#10;&#10;- implement abstract functionality for all API requests">
+      <option name="closed" value="true" />
+      <created>1707171110776</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1707171110776</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat(League Downloader): Renaming - Non Static&#10;&#10;- Downloader now holds information about current version an language to be downloaded&#10;- no more static use of the downloader">
+      <option name="closed" value="true" />
+      <created>1707171254992</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1707171254992</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat(LoL enums): Enums&#10;&#10;- Endpoints and Language enum">
+      <option name="closed" value="true" />
+      <created>1707171296555</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1707171296555</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat(League Downloader): Response Object&#10;&#10;- Response for download champs">
+      <option name="closed" value="true" />
+      <created>1707171329703</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1707171329703</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat(Image Entity): Image entity&#10;&#10;- Impl image entity">
+      <option name="closed" value="true" />
+      <created>1707171376486</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1707171376486</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat(Client Hirachy): Clients&#10;&#10;- impl RiotClient, this will offer all seperate clients">
+      <option name="closed" value="true" />
+      <created>1707171424802</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1707171424802</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat(Maven Packaging): Settings for Packageing&#10;&#10;- define devops package">
+      <option name="closed" value="true" />
+      <created>1707171463077</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1707171463077</updated>
+    </task>
+    <task id="LOCAL-00015" summary="refactor(package): move to model&#10;&#10;- champion moved to model">
+      <option name="closed" value="true" />
+      <created>1707259144230</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1707259144230</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat(download): champions&#10;&#10;downloading icons are byte array">
+      <option name="closed" value="true" />
+      <created>1707259190248</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1707259190248</updated>
+    </task>
+    <task id="LOCAL-00017" summary="refactor(package): move to model&#10;&#10;- champion moved to model">
+      <option name="closed" value="true" />
+      <created>1707259205787</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1707259205787</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat(download): champions&#10;&#10;downloading icons are byte array">
+      <option name="closed" value="true" />
+      <created>1707259225836</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1707259225836</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat(authentication): apitoken&#10;&#10;first attempt for authentication">
+      <option name="closed" value="true" />
+      <created>1707259260288</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1707259260288</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="feat(RiotApi): JsonBodyHandler&#10;&#10;- implement handler to serialize response from string to json automaticly used for HttpClient" />
     <MESSAGE value="feat(RiotApi): RiotClient&#10;&#10;- implement first method to get all versions numbers from the riot api" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(RiotApi): RiotClient&#10;&#10;- implement first method to get all versions numbers from the riot api" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/de/cobas/lol/StaticApiDownloaderTest.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="feat(LeagueClient): Champion Entity&#10;&#10;- implement Champion Entity based on API Response" />
+    <MESSAGE value="feat(HttpClient): Add Abstract Class&#10;&#10;- implement abstract functionality for all API requests" />
+    <MESSAGE value="feat(League Downloader): Renaming - Non Static&#10;&#10;- Downloader now holds information about current version an language to be downloaded&#10;- no more static use of the downloader" />
+    <MESSAGE value="feat(LoL enums): Enums&#10;&#10;- Endpoints and Language enum" />
+    <MESSAGE value="feat(League Downloader): Response Object&#10;&#10;- Response for download champs" />
+    <MESSAGE value="feat(Image Entity): Image entity&#10;&#10;- Impl image entity" />
+    <MESSAGE value="feat(Client Hirachy): Clients&#10;&#10;- impl RiotClient, this will offer all seperate clients" />
+    <MESSAGE value="feat(Maven Packaging): Settings for Packageing&#10;&#10;- define devops package" />
+    <MESSAGE value="refactor(package): move to model&#10;&#10;- champion moved to model" />
+    <MESSAGE value="feat(download): champions&#10;&#10;downloading icons are byte array" />
+    <MESSAGE value="feat(authentication): apitoken&#10;&#10;first attempt for authentication" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(authentication): apitoken&#10;&#10;first attempt for authentication" />
   </component>
 </project>

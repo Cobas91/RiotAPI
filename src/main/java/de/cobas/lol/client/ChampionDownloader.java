@@ -1,10 +1,11 @@
-package de.cobas.lol;
+package de.cobas.lol.client;
 
+import de.cobas.lol.enums.Language;
+import de.cobas.lol.enums.RiotApiUrl;
 import de.cobas.lol.model.Champion;
 import de.cobas.lol.model.ChampionSkinInfo;
-import de.cobas.lol.responses.champion.LeagueOfLegendsChampResponse;
+import de.cobas.lol.responses.LeagueOfLegendsChampResponse;
 import de.cobas.util.HttpClientImpl;
-import lombok.Setter;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -14,26 +15,14 @@ import java.net.http.HttpRequest;
 import java.util.ArrayList;
 import java.util.List;
 
-@Setter
-public class LeagueOfLegendsApiDownloader extends HttpClientImpl {
-
-    private String patchVersion;
-    private Languages language = Languages.en_US;
-    public LeagueOfLegendsApiDownloader() {
-        super(LeagueOfLegendsApiDownloader.class);
-        initPatchVersion();
+public class ChampionDownloader extends HttpClientImpl {
+    private final String patchVersion;
+    private final Language language;
+    protected ChampionDownloader(String patchVersion, Language language) {
+        super(ChampionDownloader.class);
+        this.patchVersion = patchVersion;
+        this.language = language;
     }
-
-    private void initPatchVersion() {
-        String[] versions = downloadVersionNumbers();
-        this.patchVersion = versions[0];
-    }
-
-    public String[] downloadVersionNumbers() {
-        HttpRequest request = getForUri(RiotApiUrl.VERSION.getUri());
-        return sendRequest(request, String[].class);
-    }
-
     public List<Champion> getAllChampions() {
         HttpRequest allChampRequest = getForUri(RiotApiUrl.CHAMPIONS.getUri(patchVersion, language));
         LeagueOfLegendsChampResponse leagueOfLegendsChampResponse = sendRequest(allChampRequest, LeagueOfLegendsChampResponse.class);
