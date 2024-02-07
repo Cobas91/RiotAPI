@@ -1,4 +1,4 @@
-package de.cobas.lol.responses.champion;
+package de.cobas.lol.responses;
 
 import de.cobas.lol.model.Champion;
 import lombok.Data;
