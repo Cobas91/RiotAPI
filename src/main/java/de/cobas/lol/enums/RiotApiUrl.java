@@ -1,4 +1,4 @@
-package de.cobas.lol;
+package de.cobas.lol.enums;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -9,7 +9,8 @@ public enum RiotApiUrl {
     VERSION("https://ddragon.leagueoflegends.com/api/versions.json"),
     CHAMPIONS("https://ddragon.leagueoflegends.com/cdn/{VERSION}/data/{LANGUAGE}/champion.json"),
     CHAMPION_DETAIL("https://ddragon.leagueoflegends.com/cdn/{VERSION}/data/{LANGUAGE}/champion/{CHAMPION}.json"),
-    CHAMPION_SPLASH("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{CHAMPION}_{NUMBER}.jpg");
+    CHAMPION_SPLASH("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{CHAMPION}_{NUMBER}.jpg"),
+    SUMMONER("https://{REGION}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{NAME}");
     private final String url;
 
     RiotApiUrl(String url) {
@@ -28,14 +29,14 @@ public enum RiotApiUrl {
             throw new RuntimeException(e);
         }
     }
-    public URI getUri(String version, Languages language){
+    public URI getUri(String version, Language language){
         try {
             return new URI(this.url.replace("{VERSION}", version).replace("{LANGUAGE}", language.name()));
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
     }
-    public URI getUri(String version, Languages language, String champion){
+    public URI getUri(String version, Language language, String champion){
         try {
             return new URI(this.url.replace("{VERSION}", version).replace("{LANGUAGE}", language.name()).replace("{CHAMPION}", champion));
         } catch (URISyntaxException e) {
@@ -46,6 +47,13 @@ public enum RiotApiUrl {
         try {
             return new URL(this.url.replace("{NUMBER}", number).replace("{CHAMPION}", champion));
         } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public URI getUri(String summonerName, RiotRegion region){
+        try {
+            return new URI(this.url.replace("{NAME}", summonerName).replace("{REGION}", region.toString()));
+        } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
     }
