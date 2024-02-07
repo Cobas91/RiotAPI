@@ -10,10 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: version-increment-task@0
-  inputs:
-    versionVariable: 'projectVersion'
-    previewName: 'beta'
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
