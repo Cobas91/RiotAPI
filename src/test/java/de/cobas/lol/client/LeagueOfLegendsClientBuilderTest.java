@@ -7,7 +7,7 @@ class LeagueOfLegendsClientBuilderTest {
 
     @Test
     public void test(){
-        LeagueOfLegendsClient client = new LeagueOfLegendsClientBuilder().withChampionDownloader(Language.en_US).build();
+        LeagueOfLegendsClient client = LeagueOfLegendsClient.builder().withChampionDownloader(Language.en_US).build();
     }
 
 }

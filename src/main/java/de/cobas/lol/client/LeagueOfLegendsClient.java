@@ -20,7 +20,8 @@ public class LeagueOfLegendsClient {
     public String[] getCurrentAvailableVersions(){
         return VersionDownloader.getVersionNumbers();
     }
-    public Set<Champion> getAllChampions(){
-        return new HashSet<>(championDownloader.getAllChampions());
+
+    public static LeagueOfLegendsClientBuilder builder(){
+        return new LeagueOfLegendsClientBuilder();
     }
 }

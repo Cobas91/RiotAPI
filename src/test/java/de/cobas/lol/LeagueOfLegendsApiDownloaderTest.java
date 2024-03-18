@@ -26,7 +26,7 @@ class LeagueOfLegendsApiDownloaderTest {
     @Test
     @DisplayName("Test if the Download of all Champions is not a Empty result")
     public void testDownloadAllChampions(){
-        LeagueOfLegendsClient client = new LeagueOfLegendsClientBuilder().withChampionDownloader(Language.en_US).build();
+        LeagueOfLegendsClient client = LeagueOfLegendsClient.builder().withChampionDownloader(Language.en_US).build();
         List<Champion> allChampions = client.getChampionDownloader().getAllChampions();
          assertFalse(allChampions.isEmpty());
     }
