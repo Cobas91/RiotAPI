@@ -1,6 +1,10 @@
 # Java RiotAPI Library
 You can use this Library to fetch Data from the official RiotApi.
 
+![Riot Games](https://img.shields.io/badge/riotgames-D32936.svg?style=for-the-badge&logo=riotgames&logoColor=white)
+
+![GitHub Release](https://img.shields.io/github/v/release/Cobas91/RiotAPI)
+
 ## Supported Games
 - League of Legends
 - Valorant (TBD)
