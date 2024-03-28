@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"io.github.cobas91.enums"},{"l":"io.github.cobas91.lol"},{"l":"io.github.cobas91.lol.client"},{"l":"io.github.cobas91.lol.model"},{"l":"io.github.cobas91.lol.responses"},{"l":"io.github.cobas91.util"}];updateSearchResults();
