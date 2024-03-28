@@ -7,7 +7,7 @@
     <description>Java Library to fetch Data from the official RiotApi</description>
     <url>https://github.com/Cobas91/RiotAPI</url>
     <groupId>io.github.cobas91</groupId>
-    <artifactId>RiotApi</artifactId>
+    <artifactId>riotapi</artifactId>
     <version>1.0.0</version>
     <licenses>
         <license>
@@ -18,31 +18,16 @@
     <developers>
         <developer>
             <name>Stephan Gärtner</name>
-            <email>stephan.gaertner72@outlook.de</email>
+            <email>cobas@cobas-coding.com</email>
             <organization>Cobas-Coding</organization>
             <organizationUrl>https://cobas-coding.com</organizationUrl>
         </developer>
     </developers>
-    <scm>
-        <url>https://github.com/Cobas91/RiotAPI/tree/master</url>
-    </scm>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <repositories>
-        <repository>
-            <id>stephangaertner72</id>
-            <url>https://pkgs.dev.azure.com/Cobas-Coding/_packaging/stephangaertner72/maven/v1</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -71,43 +56,27 @@
     </dependencies>
     <distributionManagement>
         <repository>
-            <id>ossrh</id>
-            <name>Central Repository OSSRH</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/Cobas91/RiotAPI</url>
         </repository>
     </distributionManagement>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>3.2.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.5.0</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
-                        <phase>package</phase>
                         <goals>
                             <goal>jar</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
-
-
         </plugins>
     </build>
+
 </project>
