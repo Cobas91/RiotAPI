@@ -12,6 +12,8 @@ You can use this Library to fetch Data from the official RiotApi.
 
 ## Usage
 Add the Library to your Dependencies
+
+[Docs](https://cobas91.github.io/RiotAPI/)
 ### League of Legends
 ```Java
 LeagueOfLegendsClient client = LeagueOfLegendsClient.builder().withChampionDownloader(Language.en_US).build();

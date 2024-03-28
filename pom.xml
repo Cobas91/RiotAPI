@@ -93,6 +93,7 @@
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
+                    <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
                     <outputDirectory>${project.build.directory}/apidocs</outputDirectory>
                     <reportOutputDirectory>${project.build.directory}</reportOutputDirectory>
                 </configuration>
