@@ -1,0 +1,28 @@
+name: Bug Report
+description: Report a Bug.
+title: "[Bug]: "
+labels: ["bug"]
+projects: ["Cobas91/2"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your time!
+  - type: dropdown
+    id: client
+    attributes:
+      label: Which game / module?
+      multiple: false
+      options:
+        - League of Legends
+        - Valorant
+        - Legends of Runeterra
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the bug in detail.
+    validations:
+      required: true
