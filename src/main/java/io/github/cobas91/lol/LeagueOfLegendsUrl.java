@@ -1,12 +1,10 @@
 package io.github.cobas91.lol;
 
-import io.github.cobas91.enums.Language;
-import io.github.cobas91.enums.RiotRegion;
-
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Map;
 
 /**
  * Enumeration class representing the League of Legends API URLs.
@@ -16,7 +14,10 @@ public enum LeagueOfLegendsUrl {
     CHAMPIONS("https://ddragon.leagueoflegends.com/cdn/{VERSION}/data/{LANGUAGE}/champion.json"),
     CHAMPION_DETAIL("https://ddragon.leagueoflegends.com/cdn/{VERSION}/data/{LANGUAGE}/champion/{CHAMPION}.json"),
     CHAMPION_SPLASH("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{CHAMPION}_{NUMBER}.jpg"),
-    SUMMONER("https://{REGION}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{NAME}");
+    SUMMONER("https://{REGION}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{NAME}"),
+    MATCH("https://{REGION}.api.riotgames.com/lol/match/v5/matches/{MATCH_ID}"),
+    ITEM("https://ddragon.leagueoflegends.com/cdn/{VERSION}/data/{LANGUAGE}/item.json"),
+    ITEM_SPASH("https://ddragon.leagueoflegends.com/cdn/{VERSION}/img/item/{ITEM_ID}.png");
     private final String url;
 
     LeagueOfLegendsUrl(String url) {
@@ -28,39 +29,31 @@ public enum LeagueOfLegendsUrl {
         return this.url;
     }
 
-    public URI getUri(){
+    public URI getUri() {
         try {
             return new URI(this.url);
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
     }
-    public URI getUri(String version, Language language){
+
+    public URL getURL(Map<String, String> replacements) {
         try {
-            return new URI(this.url.replace("{VERSION}", version).replace("{LANGUAGE}", language.name()));
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    public URI getUri(String version, Language language, String champion){
-        try {
-            return new URI(this.url.replace("{VERSION}", version).replace("{LANGUAGE}", language.name()).replace("{CHAMPION}", champion));
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    public URL getURL(String champion, String number){
-        try {
-            return new URL(this.url.replace("{NUMBER}", number).replace("{CHAMPION}", champion));
+            return new URL(replaceUrl(replacements));
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
     }
-    public URI getUri(String summonerName, RiotRegion region){
-        try {
-            return new URI(this.url.replace("{NAME}", summonerName).replace("{REGION}", region.toString()));
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
+
+    public URI getUri(Map<String, String> replacements) {
+        return URI.create(replaceUrl(replacements));
+    }
+
+    private String replaceUrl(Map<String, String> replacements){
+        String url = this.url;
+        for (Map.Entry<String, String> entry : replacements.entrySet()) {
+            url = url.replace(entry.getKey(), entry.getValue());
         }
+        return url;
     }
 }

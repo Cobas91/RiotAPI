@@ -15,8 +15,10 @@ Add the Library to your Dependencies
 
 [Docs](https://cobas91.github.io/RiotAPI/)
 ### League of Legends
+
 ```Java
-LeagueOfLegendsClient client = LeagueOfLegendsClient.builder().withChampionDownloader(Language.en_US).build();
+
+LeagueOfLegendsClient client = LeagueOfLegendsClient.builder(RiotRegion.EUW1, Language.en_US).withChampionDownloader().build();
 ```
 ### Valorant
 (TBD)

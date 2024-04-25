@@ -1,7 +1,7 @@
 package io.github.cobas91.lol.client;
 
 import io.github.cobas91.lol.LeagueOfLegendsUrl;
-import io.github.cobas91.util.HttpClientImpl;
+import io.github.cobas91.util.RiotApiHttpClient;
 
 import java.net.http.HttpRequest;
 
@@ -9,8 +9,9 @@ import java.net.http.HttpRequest;
  * The VersionDownloader class is responsible for downloading the current version numbers of the game.
  * It extends the HttpClientImpl class and provides methods to retrieve the current patch.
  */
-public class VersionDownloader extends HttpClientImpl {
-    public VersionDownloader() {
+public class VersionDownloader extends RiotApiHttpClient {
+
+    VersionDownloader() {
         super(VersionDownloader.class);
     }
 
@@ -19,7 +20,7 @@ public class VersionDownloader extends HttpClientImpl {
      *
      * @return The current patch version as a String.
      */
-    public static String getCurrentPatch() {
+    public String getCurrentPatch() {
         String[] versions = getVersionNumbers();
         return versions[0];
     }
@@ -29,7 +30,7 @@ public class VersionDownloader extends HttpClientImpl {
      *
      * @return An array of strings representing the available versions.
      */
-    public static String[] getVersionNumbers() {
+    public String[] getVersionNumbers() {
         HttpRequest request = getForUri(LeagueOfLegendsUrl.VERSION.getUri());
         return sendRequest(request, String[].class);
     }

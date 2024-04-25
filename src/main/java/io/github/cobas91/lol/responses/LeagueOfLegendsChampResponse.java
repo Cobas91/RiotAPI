@@ -1,6 +1,6 @@
 package io.github.cobas91.lol.responses;
 
-import io.github.cobas91.lol.model.Champion;
+import io.github.cobas91.lol.model.champion.Champion;
 import lombok.Data;
 
 import java.util.Map;
