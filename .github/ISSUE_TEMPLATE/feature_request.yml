@@ -2,7 +2,7 @@ name: Feature Request
 description: Request a new Feature.
 title: "[Feature]: "
 labels: ["feature"]
-projects: ["Cobas91/2"]
+projects: ["Cobas91/3"]
 body:
   - type: markdown
     attributes:
