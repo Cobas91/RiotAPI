@@ -2,7 +2,8 @@ package io.github.cobas91.util;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -22,11 +23,11 @@ public abstract class RiotApiHttpClient {
     public static final ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     private static String token = "";
     public RiotApiHttpClient(Class<?> implementingClass) {
-        this.log = Logger.getLogger(implementingClass);
+        this.log = LogManager.getLogger(implementingClass);
     }
 
     public RiotApiHttpClient(Class<?> implementingClass, String apiToken) {
-        this.log = Logger.getLogger(implementingClass);
+        this.log = LogManager.getLogger(implementingClass);
         token = apiToken;
     }
 
