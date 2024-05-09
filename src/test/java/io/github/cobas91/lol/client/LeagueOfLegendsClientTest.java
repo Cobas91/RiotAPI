@@ -5,7 +5,6 @@ import io.github.cobas91.enums.Language;
 import io.github.cobas91.enums.RiotRegion;
 import io.github.cobas91.lol.model.item.Item;
 import io.github.cobas91.lol.model.match.Match;
-import io.github.cobas91.lol.model.summoner.Summoner;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

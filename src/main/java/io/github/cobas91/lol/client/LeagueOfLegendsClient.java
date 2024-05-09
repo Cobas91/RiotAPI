@@ -3,7 +3,11 @@ package io.github.cobas91.lol.client;
 import io.github.cobas91.RiotSettings;
 import io.github.cobas91.enums.Language;
 import io.github.cobas91.enums.RiotRegion;
+import io.github.cobas91.lol.model.match.Match;
+import io.github.cobas91.lol.model.summoner.Summoner;
 import lombok.Getter;
+
+import java.util.List;
 
 /**
  * The LeagueOfLegendsClient class represents a client for interacting with the League of Legends API.
@@ -22,6 +26,11 @@ public class LeagueOfLegendsClient {
         this.summonerDownloader = builder.getSummonerDownloader();
         this.matchDownloader = builder.getMatchDownloader();
         this.itemDownloader = builder.getItemDownloader();
+    }
+
+    public List<Match> getAllMatchesByRiotId(String name, String tag){
+        Summoner summonerInformation = this.summonerDownloader.getSummonerInformation(name, tag);
+        return this.matchDownloader.getAllMatches(summonerInformation.getPuuid());
     }
 
     public static LeagueOfLegendsClientBuilder builder(RiotSettings settings){
