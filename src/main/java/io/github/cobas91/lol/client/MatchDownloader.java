@@ -6,25 +6,31 @@ import io.github.cobas91.lol.model.match.Match;
 import io.github.cobas91.util.RiotApiHttpClient;
 import lombok.Setter;
 
-import java.lang.reflect.ParameterizedType;
-import java.net.URI;
 import java.net.http.HttpRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+@Setter
 public class MatchDownloader extends RiotApiHttpClient {
-    @Setter
+
     private RiotRegion region;
     public MatchDownloader(String apiToken, RiotRegion region) {
         super(MatchDownloader.class, apiToken);
         this.region = region;
     }
 
+    /**
+     * Retrieves a match object by its ID.
+     *
+     * @param id the ID of the match to retrieve
+     * @return the Match object with the specified ID
+     */
     public Match getMatchById(String id){
         HttpRequest request = getForUri(LeagueOfLegendsUrl.MATCH.getUri(Map.of("{REGION}", this.region.getUrlParameter(), "{MATCH_ID}", id)));
         return sendRequest(request, Match.class);
     }
+
     private List<String> getMatchIds(String puuid){
         HttpRequest request = getForUri(LeagueOfLegendsUrl.MATCHES.getUri(
                         Map.of(

@@ -1,8 +1,6 @@
 package io.github.cobas91.lol.client;
 
 import io.github.cobas91.RiotSettings;
-import io.github.cobas91.enums.Language;
-import io.github.cobas91.enums.RiotRegion;
 import io.github.cobas91.lol.model.match.Match;
 import io.github.cobas91.lol.model.summoner.Summoner;
 import lombok.Getter;
@@ -28,6 +26,13 @@ public class LeagueOfLegendsClient {
         this.itemDownloader = builder.getItemDownloader();
     }
 
+    /**
+     * Retrieves all matches for a given Riot ID.
+     * RiotId Example: Cobas#1505 -> Cobas = name, 1505 -> tag
+     * @param name the name of the summoner
+     * @param tag the tag of the summoner
+     * @return a List of Match objects containing the summoner's last 20 matches
+     */
     public List<Match> getAllMatchesByRiotId(String name, String tag){
         Summoner summonerInformation = this.summonerDownloader.getSummonerInformation(name, tag);
         return this.matchDownloader.getAllMatches(summonerInformation.getPuuid());
