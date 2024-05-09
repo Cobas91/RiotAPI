@@ -22,6 +22,7 @@ class LeagueOfLegendsClientTest {
     @BeforeAll
     static void setUpBeforeClass() {
         token = System.getenv("RIOT_API_TOKEN");
+        System.out.println(token);
         settings = RiotSettings.builder().apiToken(token).region(RiotRegion.EUW1).language(Language.de_DE).build();
         client = LeagueOfLegendsClient.builder(settings).withMatchDownloader().withSummonerDownloader().withChampionDownloader().build();
     }
