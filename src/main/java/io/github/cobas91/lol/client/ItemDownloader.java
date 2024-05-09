@@ -26,6 +26,11 @@ public class ItemDownloader extends RiotApiHttpClient {
         this.language = language;
     }
 
+    /**
+     * Retrieves all items from the League of Legends API.
+     *
+     * @return a List of Item objects representing the items in the game
+     */
     public List<Item> getAllItems() {
         HttpRequest request = getForUri(LeagueOfLegendsUrl.ITEM.getUri(Map.of(
                 "{VERSION}", this.version,
@@ -44,6 +49,12 @@ public class ItemDownloader extends RiotApiHttpClient {
         return result;
     }
 
+    /**
+     * Downloads the splash image of a League of Legends item.
+     *
+     * @param itemId the ID of the item
+     * @return the byte array representing the downloaded image
+     */
     public byte[] downloadItemSplash(Integer itemId) {
         return ImageDownloader.downloadImage(LeagueOfLegendsUrl.ITEM_SPASH.getURL(
                 Map.of(

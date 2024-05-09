@@ -32,6 +32,11 @@ public class LeagueOfLegendsClientBuilder {
         this.apiToken = settings.getApiToken();
     }
 
+    /**
+     * The LeagueOfLegendsClientBuilder class is responsible for building instances of LeagueOfLegendsClient.
+     * It provides methods to configure the ChampionDownloader and SummonerDownloader objects used by the client.
+     * The API token is also set using the withSummonerDownloader method.
+     */
     public LeagueOfLegendsClientBuilder withSummonerDownloader(){
         this.summonerDownloader = new SummonerDownloader(this.apiToken, this.region);
         return this;
@@ -46,6 +51,11 @@ public class LeagueOfLegendsClientBuilder {
         return this;
     }
 
+    /**
+     * Sets the MatchDownloader object for the LeagueOfLegendsClientBuilder.
+     *
+     * @return The LeagueOfLegendsClientBuilder object with the MatchDownloader set.
+     */
     public LeagueOfLegendsClientBuilder withMatchDownloader(){
         this.matchDownloader = new MatchDownloader(this.apiToken, this.region);
         return this;
