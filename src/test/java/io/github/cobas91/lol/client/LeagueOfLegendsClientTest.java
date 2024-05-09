@@ -22,21 +22,19 @@ class LeagueOfLegendsClientTest {
     @BeforeAll
     static void setUpBeforeClass() {
         token = System.getenv("RIOT_API_TOKEN");
-        System.out.println("TOKEN:"+token);
         settings = RiotSettings.builder().apiToken(token).region(RiotRegion.EUW1).language(Language.de_DE).build();
         client = LeagueOfLegendsClient.builder(settings).withMatchDownloader().withSummonerDownloader().withChampionDownloader().build();
     }
 
     @Test
     void testMatchDownload() {
-        Summoner summoner = client.getSummonerDownloader().getSummonerInformation("Cobas", "1505");
-        assertNotNull(summoner);
-        List<Match> matches = client.getMatchDownloader().getAllMatches(summoner.getPuuid());
+        List<Match> matches = client.getAllMatchesByRiotId("Cobas", "1505");
         assertEquals(20, matches.size());
         for (Match match : matches) {
             assertEquals(10, match.getMetadata().getParticipants().size());
         }
     }
+
     @Test
     void testItemDownloader(){
         ItemDownloader itemDownloader = client.getItemDownloader();
