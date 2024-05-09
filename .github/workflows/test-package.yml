@@ -11,7 +11,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Run Maven test
-
         run: mvn test
         env:
           GITHUB_TOKEN: ${{ secrets.PACKAGE_DEPLOY_TOKEN }}
+          RIOT_API_TOKEN: ${{secrets.RIOT_API_TOKEN}}
