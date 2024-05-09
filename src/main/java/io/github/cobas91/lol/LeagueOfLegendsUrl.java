@@ -14,8 +14,10 @@ public enum LeagueOfLegendsUrl {
     CHAMPIONS("https://ddragon.leagueoflegends.com/cdn/{VERSION}/data/{LANGUAGE}/champion.json"),
     CHAMPION_DETAIL("https://ddragon.leagueoflegends.com/cdn/{VERSION}/data/{LANGUAGE}/champion/{CHAMPION}.json"),
     CHAMPION_SPLASH("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{CHAMPION}_{NUMBER}.jpg"),
+    SUMMONER_BY_RIOT_ID("https://{REGION}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{NAME}/{TAG}"),
     SUMMONER("https://{REGION}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{NAME}"),
     MATCH("https://{REGION}.api.riotgames.com/lol/match/v5/matches/{MATCH_ID}"),
+    MATCHES("https://{REGION}.api.riotgames.com/lol/match/v5/matches/by-puuid/{PUUID}/ids?start=0&count=20"),
     ITEM("https://ddragon.leagueoflegends.com/cdn/{VERSION}/data/{LANGUAGE}/item.json"),
     ITEM_SPASH("https://ddragon.leagueoflegends.com/cdn/{VERSION}/img/item/{ITEM_ID}.png");
     private final String url;

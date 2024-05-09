@@ -23,11 +23,12 @@ public class SummonerDownloader extends RiotApiHttpClient {
      * @param summonerName the name of the summoner
      * @return a SummonerInformationResponse object containing the summoner information
      */
-    public Summoner getSummonerInformation(String summonerName) {
-        HttpRequest request = getForUri(LeagueOfLegendsUrl.SUMMONER.getUri(
+    public Summoner getSummonerInformation(String summonerName, String tag) {
+        HttpRequest request = getForUri(LeagueOfLegendsUrl.SUMMONER_BY_RIOT_ID.getUri(
                         Map.of(
                                 "{NAME}", summonerName,
-                                "{REGION}", this.region.name())
+                                "{TAG}", tag,
+                                "{REGION}", this.region.getUrlParameter())
                 )
         );
         return sendRequest(request, Summoner.class);
